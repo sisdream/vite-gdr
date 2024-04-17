@@ -11,7 +11,7 @@ export default {
       pcCard: null,
       userCardStrength: null,
       pcCardDefence: null,
-      result: null
+      result: null,
     };
   },
 
@@ -36,6 +36,10 @@ export default {
         });
     },
 
+
+    
+
+
     random() {
       const randomId = Math.ceil(Math.random()*this.characters.length)
       return randomId;
@@ -54,7 +58,7 @@ export default {
       if( this.userCardStrength > this.pcCardDefence ){
         console.log(this.userCardStrength);
         console.log(this.pcCardDefence);
-        alert("USER HA VINTO");
+        alert("HAI VINTO");
         
       } else if ( this.userCardStrength < this.pcCardDefence ) {
         console.log(this.userCardStrength);
@@ -91,15 +95,15 @@ export default {
     <div class="row g-3 mt-3">
       <div class="col-5 d-flex flex-column align-items-center">
         <h4>Card Giocatore</h4>
-        <div v-if="userCard" class="card">
+        <div v-if="userCard" class="card w-100">
           <div class="card-header">
             <h5 class="card-title">{{ userCard.name }}</h5>
           </div>
-
           <div class="card-body">            
-            <p class="card-text">
+            <img :src="`http://127.0.0.1:8000/storage` + userCard.type.image" class="w-100" alt="">
+            <!-- <p class="card-text">
               {{ userCard.description }}
-            </p>
+            </p> -->
 
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
@@ -136,15 +140,17 @@ export default {
 
       <div class="col-5 d-flex flex-column align-items-center">
         <h4>Card Computer</h4>
-        <div v-if="pcCard" class="card">
+        <div v-if="pcCard" class="card w-100">
           <div class="card-header">
             <h5 class="card-title">{{ pcCard.name }}</h5>
           </div>
 
-          <div class="card-body">            
-            <p class="card-text">
+          <div class="card-body">
+            <img :src="`http://127.0.0.1:8000/storage` + pcCard.type.image" class="w-100" alt="">
+
+            <!-- <p class="card-text">
               {{ pcCard.description }}
-            </p>
+            </p> -->
 
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
