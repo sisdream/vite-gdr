@@ -1,16 +1,7 @@
-# vite-gdr
-Continuiamo a lavorare nei gruppi creando una nuova repo per gestire il front-end della nostra applicazione e simulare un gioco tra un utente e il computer:
-## STEP 1
+# Vue 3 + Vite
 
-- interrogare le API del back-end per ottenere un character scelto in modo casuale per l'utente;
-- interrogare le API del back-end per ottenere un character scelto in modo casuale per il computer;
-- mostrare in pagina i dati ottenuti
+This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-## STEP 2
+## Recommended IDE Setup
 
-- implementiamo la seguente logica: confrontiamo la forza del character associato all'utente con la difesa di quello associato al computer
-- se la forza è maggiore della difesa, vince l'utente; se la difesa è maggiore della forza vice il computer; altrimenti è pareggio
-
-## BONUS
-
-stilizziamo le card in pagina e i risultati
+- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
