@@ -9,6 +9,9 @@ export default {
       characters: [],
       userCard: null,
       pcCard: null,
+      userCardStrength: null,
+      pcCardDefence: null,
+      result: null
     };
   },
 
@@ -42,6 +45,28 @@ export default {
       // il player può essere 'player' | 'pc'
       const randNum = this.random();
       this.fetchCharacter(randNum, player);
+    },
+
+    fight(){
+      this.userCardStrength = this.userCard.strength;
+      this.pcCardDefence = this.pcCard.defence;
+
+      if( this.userCardStrength > this.pcCardDefence ){
+        console.log(this.userCardStrength);
+        console.log(this.pcCardDefence);
+        alert("USER HA VINTO");
+        
+      } else if ( this.userCardStrength < this.pcCardDefence ) {
+        console.log(this.userCardStrength);
+        console.log(this.pcCardDefence);
+        alert("PC HA VINTO");
+
+      } else {
+        console.log(this.userCardStrength);
+        console.log(this.pcCardDefence);
+        alert("PAREGGIO");
+      }
+
     }
   },
 
@@ -58,13 +83,13 @@ export default {
     <!-- BOTTONE -->
     <div class="text-center my-4">
       <!-- <button  class="btn btn-success me-5" @click="random()">GIOCA TU!</button> -->
-      <button  class="btn btn-success me-5" @click="handleStart('player')">GIOCA TU!</button>
-      <button class="btn btn-danger" @click="handleStart('pc')">GIOCA IL PC!</button>
+      <button class="btn btn-success me-5" @click="handleStart('player')">PESCA UNA CARTA!</button>
+      <button class="btn btn-warning" @click="handleStart('pc')">PESCA LA CARTA DEL PC!</button>
     </div>
 
     <!-- CARD -->
     <div class="row g-3 mt-3">
-      <div class="col-6 d-flex flex-column align-items-center">
+      <div class="col-5 d-flex flex-column align-items-center">
         <h4>Card Giocatore</h4>
         <div v-if="userCard" class="card">
           <div class="card-header">
@@ -92,10 +117,10 @@ export default {
             </ul>
           </div>
 
-          <div class="card-footer">
+          <!-- <div class="card-footer">
             <a href="#" class="card-link">Card link</a>
             <a href="#" class="card-link">Return link</a>
-          </div>
+          </div> -->
         </div>
 
         <div v-else>
@@ -103,7 +128,13 @@ export default {
         </div>
       </div>
 
-      <div class="col-6 d-flex flex-column align-items-center">
+      <div class="col-2 d-flex justify-content-center">
+        <div>
+          <button @click="fight()" class="text-center btn btn-danger">FIGHT!</button>
+        </div>
+      </div>
+
+      <div class="col-5 d-flex flex-column align-items-center">
         <h4>Card Computer</h4>
         <div v-if="pcCard" class="card">
           <div class="card-header">
@@ -131,10 +162,10 @@ export default {
             </ul>
           </div>
 
-          <div class="card-footer">
+          <!-- <div class="card-footer">
             <a href="#" class="card-link">Card link</a>
             <a href="#" class="card-link">Return link</a>
-          </div>
+          </div> -->
         </div>
 
         <div v-else>
@@ -142,34 +173,7 @@ export default {
         </div>
       </div>
 
-      <!-- <div class="col-6" v-for="character in characters">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">{{ character.name }}</h5>
-            <p class="card-text">
-              {{ character.description }}
-            </p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <strong>Attacco: </strong>{{ character.strength }}
-            </li>
-            <li class="list-group-item">
-              <strong>Difesa: </strong>{{ character.defence }}
-            </li>
-            <li class="list-group-item">
-              <strong>Velocità: </strong>{{ character.speed }}
-            </li>
-            <li class="list-group-item">
-              <strong>Vita: </strong>{{ character.life }}
-            </li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Return link</a>
-          </div>
-        </div>
-      </div> -->
+      
     </div>
   </div>
 </template>
