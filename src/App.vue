@@ -94,7 +94,7 @@ export default {
     <div class="row g-3 d-flex justify-content-center align-items-center">
       <div class="col-5 d-flex flex-column align-items-center">
         <h4>USER</h4>
-        <div v-if="userCard" class="card bg-transparent w-100">
+        <div v-if="userCard" class="card border-0 bg-transparent w-100">
           <div class="card-header p-0">
             <h5 class="card-title text-center fs-1">{{ userCard.name }}</h5>
           </div>
@@ -103,16 +103,16 @@ export default {
             <img :src="`http://127.0.0.1:8000/storage` + userCard.type.image" class="w-100" alt="">
            </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item p-0 bg-transparent ">
+              <li class="list-group-item p-0 bg-secondary ">
                 <strong class="fs-4">Attacco: {{ userCard.strength }}</strong>
               </li>
-              <li class="list-group-item p-0 bg-transparent">
+              <li class="list-group-item p-0 bg-body-secondary">
                 <strong class="fs-4">Difesa: {{ userCard.defence }}</strong>
               </li>
-              <li class="list-group-item p-0 bg-transparent">
+              <li class="list-group-item p-0 bg-secondary">
                 <strong class="fs-4">Velocità: {{ userCard.speed }}</strong>
               </li>
-              <li class="list-group-item p-0 bg-transparent">
+              <li class="list-group-item p-0 bg-body-secondary">
                 <strong class="fs-4">Vita: {{ userCard.life }}</strong>
               </li>
             </ul>
@@ -132,7 +132,7 @@ export default {
 
       <div class="col-5 d-flex flex-column align-items-center">
         <h4>COMPUTER</h4>
-        <div v-if="pcCard" class="card bg-transparent w-100">
+        <div v-if="pcCard" class="card border-0 bg-transparent w-100">
           <div class="card-header p-0">
             <h5 class="card-title text-center fs-1">{{ pcCard.name }}</h5>
           </div>
@@ -141,16 +141,16 @@ export default {
               <img :src="`http://127.0.0.1:8000/storage` + pcCard.type.image" class="w-100" alt="">
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item p-0 bg-transparent">
+              <li class="list-group-item p-0 bg-secondary">
                 <strong class="fs-4">Attacco: {{ pcCard.strength }}</strong>
               </li>
-              <li class="list-group-item p-0 bg-transparent">
+              <li class="list-group-item p-0 bg-body-secondary">
                 <strong class="fs-4">Difesa: {{ pcCard.defence }}</strong>
               </li>
-              <li class="list-group-item p-0 bg-transparent">
+              <li class="list-group-item p-0 bg-secondary">
                 <strong class="fs-4">Velocità: {{ pcCard.speed }}</strong>
               </li>
-              <li class="list-group-item p-0 bg-transparent">
+              <li class="list-group-item p-0 bg-body-secondary">
                 <strong class="fs-4">Vita: {{ pcCard.life }}</strong>
               </li>
             </ul>
