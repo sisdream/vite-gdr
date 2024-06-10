@@ -1,10 +1,11 @@
 <script>
 import axios from "axios";
-import { store } from './store'
+import { store } from './store';
 
 export default {
   data() {
     return {
+      api: store.api,
       title: "Card VS Card",
       characters: [],
       userCard: null,
@@ -17,13 +18,13 @@ export default {
 
   methods: {
     fetchCharacters() {
-      axios.get(`http://127.0.0.1:8000/api/characters`).then((res) => {
+      axios.get(`${this.api.baseUrl}/api/characters`).then((res) => {
         this.characters = res.data.data;
       });
     },
 
     fetchCharacter(characterId, player) {
-      axios.get(`http://127.0.0.1:8000/api/characters/${characterId}`)
+      axios.get(`${this.api.baseUrl}/api/characters/${characterId}`)
         .then((res) =>{
           if (player === 'player') {
             this.userCard = res.data;
@@ -35,10 +36,6 @@ export default {
           console.error(err)
         });
     },
-
-
-    
-
 
     random() {
       const randomId = Math.ceil(Math.random()*this.characters.length)
@@ -100,7 +97,7 @@ export default {
           </div>
           <div class="card-body p-0">            
            <div class="image">
-            <img :src="`http://127.0.0.1:8000/storage` + userCard.type.image" class="w-100" alt="">
+            <img :src="api.baseUrl + userCard.type.image" class="w-100" alt="">
            </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item p-0 bg-secondary ">
@@ -125,7 +122,7 @@ export default {
       </div>
 
       <div class="col-2">
-        <div>
+        <div class="text-center">
           <button @click="fight()" class="text-center btn btn-danger">FIGHT!</button>
         </div>
       </div>
@@ -138,7 +135,7 @@ export default {
           </div>
           <div class="card-body p-0">
             <div class="image">
-              <img :src="`http://127.0.0.1:8000/storage` + pcCard.type.image" class="w-100" alt="">
+              <img :src="api.baseUrl + pcCard.type.image" class="w-100" alt="">
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item p-0 bg-secondary">
