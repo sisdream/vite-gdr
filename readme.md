@@ -1,7 +1,28 @@
-# Vue 3 + Vite
+# vite-gdr
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Creiamo un nuovo progetto con VITE + VUE per gestire i personaggi di un Gioco di Ruolo. <br />
+Questo progetto rappresenta il front-end del sito.
 
-## Recommended IDE Setup
+## Configurazione e avvio 
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+<br>
+
+**N.B. Devi prima aver avviato il progetto `laravel-gdr`**
+
+
+<br>
+
+Apri il terminale di VSCode e scrivi:
+
+```
+npm i 
+```
+(Devi prima aver installato node.js) <br /><br />
+
+
+```
+npm run dev
+```
+<br />
+
+Apri la pagina all'indirizzo suggerito, ad esempio http://localhost:5173/
